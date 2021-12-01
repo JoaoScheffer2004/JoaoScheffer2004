@@ -1,5 +1,6 @@
 package view;
  
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,6 +20,8 @@ import model.dao.passageiroDAO;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class JFListarPassageiros extends JFrame {
 
@@ -45,7 +48,13 @@ public class JFListarPassageiros extends JFrame {
 	 * Create the frame.
 	 */
 	public JFListarPassageiros() {
-		setTitle("Listar Passageiros");
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowActivated(WindowEvent e) {
+				readJTable();
+			}
+		});
+		setTitle(" Listar Passageiros");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 526, 384);
 		contentPane = new JPanel();
@@ -79,6 +88,19 @@ public class JFListarPassageiros extends JFrame {
 		contentPane.add(btnCadastrarPassageiro);
 		
 		JButton btnAlterarPassageiro = new JButton("Alterar");
+		btnAlterarPassageiro.addActionListener(new ActionListener() {
+			 public void actionPerformed(ActionEvent e) {
+				 
+
+				 if(JTPassageiros.getSelectedRow()!= -1) {
+						JFAtualizarPassageiro af = new JFAtualizarPassageiro((int)JTPassageiros.getValueAt(JTPassageiros.getSelectedRow(),0));
+						af.setVisible(true);	
+					} else {
+						JOptionPane.showMessageDialog(null, "Selecione um Passageiro!");
+					}
+				 readJTable();
+			}		 
+		});
 		btnAlterarPassageiro.setBounds(178, 250, 140, 23);
 		contentPane.add(btnAlterarPassageiro);
 		
@@ -87,7 +109,7 @@ public class JFListarPassageiros extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				if(JTPassageiros.getSelectedRow() != -1) {
-					int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o passageiro selecionado?","Excluxo", JOptionPane.YES_NO_OPTION);
+					int opcao = JOptionPane.showConfirmDialog(null, "Deseja excluir o passageiro selecionado?","Excluso", JOptionPane.YES_NO_OPTION);
 						if(opcao == 0) {
 					
 						passageiroDAO dao = new passageiroDAO();

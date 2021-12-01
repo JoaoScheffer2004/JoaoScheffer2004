@@ -16,7 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import model.bean.passageiro;
-import model.dao.PassageiroDAO;
+import model.dao.passageiroDAO;
+
 import javax.swing.SwingConstants;
 
 public class JFcadPassageiros extends JFrame {
@@ -53,7 +54,7 @@ public class JFcadPassageiros extends JFrame {
 	 * Create the frame.
 	 */
 	public JFcadPassageiros() {
-		setTitle("SisRodovi\u00E1ria - Cadastrar Passageiro");
+		setTitle("SisRodoviária - Cadastrar Passageiro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 563, 408);
 		contentPane = new JPanel();
@@ -82,7 +83,7 @@ public class JFcadPassageiros extends JFrame {
 		list.setBounds(90, 171, 21, -23);
 		contentPane.add(list);
 		
-		JLabel lblNewLabel_2 = new JLabel("G\u00EAnero:");
+		JLabel lblNewLabel_2 = new JLabel("Gênero:");
 		lblNewLabel_2.setBounds(247, 230, 46, 14);
 		contentPane.add(lblNewLabel_2);
 		
@@ -116,7 +117,7 @@ public class JFcadPassageiros extends JFrame {
 		contentPane.add(textTelefone);
 		textTelefone.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("Endere\u00E7o:");
+		JLabel lblNewLabel_5 = new JLabel("Endereço:");
 		lblNewLabel_5.setBounds(30, 93, 76, 14);
 		contentPane.add(lblNewLabel_5);
 		
@@ -148,7 +149,7 @@ public class JFcadPassageiros extends JFrame {
 			public void actionPerformed(ActionEvent argo0) {
 				
 				passageiro f = new passageiro();
-				PassageiroDAO dao = new PassageiroDAO();
+				passageiroDAO dao = new passageiroDAO();
 				
 				f.setNome(textName.getText());
 				if(rdbMasc.isSelected()) {
@@ -157,10 +158,10 @@ public class JFcadPassageiros extends JFrame {
 					f.setGenero(true);
 				}
 				f.setRg(textRG.getText());
-				f.setCpf(textTelefone.getText());
+				f.setCpf(textCPF.getText());
 				f.setEndereco(textEndereo.getText());
 				f.setEmail(textEmail.getText());
-				f.setTelefone(textCPF.getText());
+				f.setTelefone(Long.parseLong(textTelefone.getText())) ;
 				
 				
 				dao.create(f);

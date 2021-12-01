@@ -2,21 +2,21 @@ package model.bean;
 
 public class passageiro {
 	
-	private int id_passageiro;
+	private int idpassageiro;
 	private String nome;
 	private boolean genero;
 	private String rg;
 	private String cpf;
 	private String endereco;
 	private String email;
-	private String telefone;
+	private long telefone;
 	
 	
 	public int getId_passageiro() {
-		return id_passageiro;
+		return idpassageiro;
 	}
-	public void setId_passageiro(int id_passageiro) {
-		this.id_passageiro = id_passageiro;
+	public void setId_passageiro(int idpassageiro) {
+		this.idpassageiro = idpassageiro;
 	}
 	public String getNome() {
 		return nome;
@@ -54,10 +54,10 @@ public class passageiro {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTelefone() {
+	public long getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(String telefone) {
+	public void setTelefone(long telefone) {
 		this.telefone = telefone;
 	}
 	

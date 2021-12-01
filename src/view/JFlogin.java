@@ -27,7 +27,7 @@ public class JFlogin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JFLogin frame = new JFLogin();
+					JFlogin frame = new JFlogin();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
