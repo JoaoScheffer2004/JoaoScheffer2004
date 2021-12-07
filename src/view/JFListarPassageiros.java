@@ -130,7 +130,7 @@ public class JFListarPassageiros extends JFrame {
 				readJTable();  
 			}
 		});
-		btnExcluirPassageiro.setBounds(328, 250, 140, 23);
+		btnExcluirPassageiro.setBounds(329, 250, 140, 23);
 		contentPane.add(btnExcluirPassageiro);
 		readJTable(); 
 	}

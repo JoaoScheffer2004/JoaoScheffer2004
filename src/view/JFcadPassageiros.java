@@ -186,7 +186,7 @@ public class JFcadPassageiros extends JFrame {
 			}
 		});
 
-		btnLimp.setBounds(228, 282, 89, 23);
+		btnLimp.setBounds(228, 283, 89, 23);
 		contentPane.add(btnLimp);
 		
 		JButton btnCancel = new JButton("Cancelar");

@@ -226,7 +226,7 @@ public class JFAtualizarPassageiro extends JFrame {
 			}
 		});
 
-		btnNewButton_1.setBounds(253, 289, 89, 23);
+		btnNewButton_1.setBounds(254, 289, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
