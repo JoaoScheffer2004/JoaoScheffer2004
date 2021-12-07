@@ -55,7 +55,7 @@ public class JFcadPassageiros extends JFrame {
 	 */
 	public JFcadPassageiros() {
 		setTitle("SisRodoviária - Cadastrar Passageiro");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 563, 408);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -165,6 +165,8 @@ public class JFcadPassageiros extends JFrame {
 				
 				
 				dao.create(f);
+				dispose();
+
 				
 			}
 		});
@@ -172,10 +174,28 @@ public class JFcadPassageiros extends JFrame {
 		contentPane.add(btnCAD);
 		
 		JButton btnLimp = new JButton("Limpar");
+		btnLimp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textName.setText(null);
+				textRG.setText(null);
+				textCPF.setText(null);
+				textEndereo.setText(null);
+				textEmail.setText(null);
+				textTelefone.setText(null);
+				genero.clearSelection();
+			}
+		});
+
 		btnLimp.setBounds(228, 282, 89, 23);
 		contentPane.add(btnLimp);
 		
 		JButton btnCancel = new JButton("Cancelar");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+
 		btnCancel.setBounds(129, 282, 89, 23);
 		contentPane.add(btnCancel);
 	}

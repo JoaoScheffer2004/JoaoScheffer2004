@@ -84,6 +84,13 @@ public class JFListarPassageiros extends JFrame {
 		scrollPane.setViewportView(JTPassageiros);
 		
 		JButton btnCadastrarPassageiro = new JButton("Cadastrar");
+		btnCadastrarPassageiro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFcadPassageiros cf = new JFcadPassageiros();
+				cf.setVisible(true);		
+			}
+		});
+
 		btnCadastrarPassageiro.setBounds(28, 250, 140, 23);
 		contentPane.add(btnCadastrarPassageiro);
 		

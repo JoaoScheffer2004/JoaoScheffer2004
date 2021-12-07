@@ -205,6 +205,8 @@ public class JFAtualizarPassageiro extends JFrame {
 				
 				
 				dao.create(f);
+				dispose ();
+
 				
 			}
 		});
@@ -212,10 +214,28 @@ public class JFAtualizarPassageiro extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Limpar");
+		btnNewButton_1 . addActionListener (new  ActionListener ()  {
+			public void actionPerformed (ActionEvent e)  {
+				textNome.setText(null);
+				textRG.setText(null);
+				textCPF.setText(null);
+				textEndereo.setText(null);
+				textEmail.setText(null);
+				textTelefone.setText(null);
+				genero.clearSelection();
+			}
+		});
+
 		btnNewButton_1.setBounds(253, 289, 89, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Cancelar");
+		btnNewButton_2.addActionListener (new ActionListener ()  {
+			public void actionPerformed (ActionEvent e)  {
+				dispose ();
+			}
+		});
+
 		btnNewButton_2.setBounds(154, 289, 89, 23);
 		contentPane.add(btnNewButton_2);
 		
